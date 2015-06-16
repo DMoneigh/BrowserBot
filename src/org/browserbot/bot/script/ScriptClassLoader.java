@@ -6,11 +6,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.util.CheckClassAdapter;
-
 /**
  * The script class loader.
  * 
@@ -19,9 +14,14 @@ import org.objectweb.asm.util.CheckClassAdapter;
 public class ScriptClassLoader extends ClassLoader {
 	
 	/**
-	 * The script class node.
+	 * The name of the script.
 	 */
-	private ClassNode node = new ClassNode();
+	private String name;
+	
+	/**
+	 * The bytes of the script
+	 */
+	private byte[] bytes;
 	
 	/**
 	 * Creates the script class loader.
@@ -31,6 +31,7 @@ public class ScriptClassLoader extends ClassLoader {
 	public ScriptClassLoader(File classFile) {
 		super();
 		try {
+			name = classFile.getName().split("\\.")[0];
 			InputStream in = new FileInputStream(classFile);
 			byte[] buffer = new byte[1024];
 			int count = 0;
@@ -38,8 +39,7 @@ public class ScriptClassLoader extends ClassLoader {
 			while ((count = in.read(buffer)) != -1)
 				baos.write(buffer, 0, count);
 			in.close();
-			ClassReader reader = new ClassReader(baos.toByteArray());
-			reader.accept(node, ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
+			bytes = baos.toByteArray();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -51,11 +51,8 @@ public class ScriptClassLoader extends ClassLoader {
 	 * @return null if the script could not be loaded
 	 */
 	public Script getScript() {
-		ClassWriter writer = new ClassWriter(ClassWriter.COMPUTE_MAXS);
-		node.accept(new CheckClassAdapter(writer, true));
-		byte[] bytes = writer.toByteArray();
 		try {
-			return defineClass(node.name, bytes, 0, bytes.length).asSubclass(Script.class).newInstance();
+			return defineClass(name, bytes, 0, bytes.length).asSubclass(Script.class).newInstance();
 		} catch (InstantiationException | IllegalAccessException
 				| ClassFormatError e) {
 			e.printStackTrace();
