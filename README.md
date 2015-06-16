@@ -20,8 +20,6 @@ Java 8 (JDK) - http://www.oracle.com/technetwork/java/javase/downloads/jdk8-down
 
 JxBrowser - http://www.teamdev.com/jxbrowser
 
-ObjectWeb ASM API - http://asm.ow2.org/
-
 Donations
 =========
 
