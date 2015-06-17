@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import org.browserbot.Configuration;
 import org.browserbot.bot.Bot;
@@ -128,10 +129,25 @@ public class BotMenuBar extends JMenuBar implements ActionListener {
 	private JMenuItem forwardMenuItem = new JMenuItem("Forward");
 
 	/**
+	 * The "Tools" menu.
+	 */
+	private JMenu toolsMenu = new JMenu("Tools");
+
+	/**
+	 * The "Clear browsing data..." menu item.
+	 */
+	private JMenuItem clearBrowsingDataMenuItem = new JMenuItem("Clear browsing data...");
+
+	/**
+	 * The "Update" menu item.
+	 */
+	private JMenuItem updateMenuItem = new JMenuItem("Update");
+
+	/**
 	 * The "Script" menu.
 	 */
 	private JMenu scriptMenu = new JMenu("Script");
-	
+
 	/**
 	 * The "Compile Scripts" menu item.
 	 */
@@ -194,6 +210,13 @@ public class BotMenuBar extends JMenuBar implements ActionListener {
 		forwardMenuItem.addActionListener(this);
 		add(historyMenu);
 
+		toolsMenu.add(clearBrowsingDataMenuItem);
+		clearBrowsingDataMenuItem.addActionListener(this);
+		toolsMenu.add(updateMenuItem);
+		updateMenuItem.addActionListener(this);
+		toolsMenu.add(updateMenuItem);
+		add(toolsMenu);
+
 		scriptMenu.add(compileScriptsMenuItem);
 		compileScriptsMenuItem.addActionListener(this);
 		scriptMenu.add(startScriptMenuItem);
@@ -250,7 +273,16 @@ public class BotMenuBar extends JMenuBar implements ActionListener {
 		} else if (source.equals(forwardMenuItem)) {
 			if (browser.canGoForward())
 				browser.goForward();
-		} else if (source.equals(compileScriptsMenuItem))
+		} else if (source.equals(clearBrowsingDataMenuItem)) {
+			if (JOptionPane.showConfirmDialog(null, "Do you wish to clear your browsing data?") == 0) {
+				browser.getCacheStorage().clearCache();
+				browser.getCookieStorage().deleteAll();
+				JOptionPane.showMessageDialog(null, "Browsing data cleared.");
+			}
+		} else if (source.equals(updateMenuItem))
+			((BotTab) getWindow().getTabPane().getSelectedComponent()).getView().getBrowser()
+			.loadURL("http://www.browserbot.org/downloads/");
+		else if (source.equals(compileScriptsMenuItem))
 			ScriptCompiler.compile();
 		else if (source.equals(startScriptMenuItem)) {
 			Script script = new BotScriptSelector(this).getSelectedScript();

@@ -136,6 +136,21 @@ public class BotToolBar extends JPanel implements ActionListener {
 	public void setStopButtonEnabled(boolean bool) {
 		stopButton.setEnabled(bool);
 	}
+	
+	/**
+	 * Toggles the navigation buttons.
+	 */
+	public void toggleNavigationButtons() {
+		Browser browser = tab.getView().getBrowser();
+		if (!browser.canGoBack())
+			backButton.setEnabled(false);
+		else
+			backButton.setEnabled(true);
+		if (!browser.canGoForward())
+			forwardButton.setEnabled(false);
+		else
+			forwardButton.setEnabled(true);
+	}
 
 	/**
 	 * Sets the address bar text.

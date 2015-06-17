@@ -22,7 +22,7 @@ public class Configuration extends Object {
 	/**
 	 * The bot minor version.
 	 */
-	public static final int BOT_VERSION_MINOR = 1;
+	public static final int BOT_VERSION_MINOR = 2;
 
 	/**
 	 * The bot user interface width.

@@ -83,6 +83,7 @@ public class BotView extends BrowserView implements LoadListener, StatusListener
 	@Override
 	public void onFinishLoadingFrame(FinishLoadingEvent arg0) {
 		tab.getToolBar().setStopButtonEnabled(false);
+		tab.getToolBar().toggleNavigationButtons();
 	}
 
 	@Override
@@ -91,6 +92,7 @@ public class BotView extends BrowserView implements LoadListener, StatusListener
 	@Override
 	public void onStartLoadingFrame(StartLoadingEvent arg0) {
 		tab.getToolBar().setStopButtonEnabled(true);
+		tab.getToolBar().toggleNavigationButtons();
 	}
 	
 	@Override
