@@ -281,7 +281,7 @@ public class BotMenuBar extends JMenuBar implements ActionListener {
 			}
 		} else if (source.equals(updateMenuItem))
 			((BotTab) getWindow().getTabPane().getSelectedComponent()).getView().getBrowser()
-			.loadURL("http://www.browserbot.org/downloads/");
+			.loadURL(Configuration.DOWNLOADS_URL);
 		else if (source.equals(compileScriptsMenuItem))
 			ScriptCompiler.compile();
 		else if (source.equals(startScriptMenuItem)) {

@@ -65,6 +65,11 @@ public class Configuration extends Object {
 	public static final String HOME_URL = "http://forums.browserbot.org";
 
 	/**
+	 * The bot download url.
+	 */
+	public static final String DOWNLOADS_URL = "http://www.browserbot.org/downloads";
+	
+	/**
 	 * Creates all bot directories.
 	 */
 	public static void mkdirs() {
