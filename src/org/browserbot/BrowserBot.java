@@ -3,33 +3,33 @@ package org.browserbot;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import org.browserbot.bot.Bot;
+import org.browserbot.ui.BrowserWindow;
+import org.browserbot.util.FileManager;
 
 /**
  * Java Browser Automation Software.
  * 
- * @author Desmond Jackson
- * 
- * @version 0.1
- * 
+ * @version 0.3
+ *
  * @see <a href="http://www.browserbot.org">BrowserBot</a>
+ * 
+ * @author Desmond Jackson
  */
-public class BrowserBot extends Object {
+public class BrowserBot {
 	
-	/**
-	 * The main method.
-	 * 
-	 * @param args String arguments
-	 */
+	public static final int MAJOR_VERSION = 0;
+
+	public static final int MINOR_VERSION = 3;
+	
 	public static void main(String[] args) {
-		Configuration.mkdirs();
+		FileManager.mkdirs();
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException
 				| IllegalAccessException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		new Bot();
+		new BrowserWindow().setVisible(true);
 	}
 
 }
