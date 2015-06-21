@@ -7,10 +7,21 @@ import javax.swing.Icon;
 import org.browserbot.ui.BrowserButton;
 import org.browserbot.ui.resource.ResourceManager;
 
+/**
+ * The refresh button.
+ * 
+ * @author Desmond Jackson
+ */
 public class RefreshButton extends BrowserButton {
 
+	/**
+	 * The serial uid.
+	 */
 	private static final long serialVersionUID = -3520046794525428134L;
 
+	/**
+	 * Creates the refresh button.
+	 */
 	public RefreshButton() {
 		super(null);
 	}

@@ -9,18 +9,29 @@ import org.browserbot.util.FileManager;
 /**
  * Java Browser Automation Software.
  * 
- * @version 0.3
+ * @version 0.4
  *
  * @see <a href="http://www.browserbot.org">BrowserBot</a>
  * 
  * @author Desmond Jackson
  */
-public class BrowserBot {
+public class BrowserBot extends Object {
 	
+	/**
+	 * The application major version.
+	 */
 	public static final int MAJOR_VERSION = 0;
 
-	public static final int MINOR_VERSION = 3;
+	/**
+	 * The application minor version.
+	 */
+	public static final int MINOR_VERSION = 4;
 	
+	/**
+	 * The main method.
+	 * 
+	 * @param args String arguments
+	 */
 	public static void main(String[] args) {
 		FileManager.mkdirs();
 		try {

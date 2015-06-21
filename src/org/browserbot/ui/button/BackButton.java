@@ -7,10 +7,21 @@ import javax.swing.Icon;
 import org.browserbot.ui.BrowserButton;
 import org.browserbot.ui.resource.ResourceManager;
 
+/**
+ * The back button.
+ * 
+ * @author Desmond Jackson
+ */
 public class BackButton extends BrowserButton {
 
+	/**
+	 * The serial uid.
+	 */
 	private static final long serialVersionUID = 9099882215558951803L;
 
+	/**
+	 * Creates the back button.
+	 */
 	public BackButton() {
 		super(null);
 	}

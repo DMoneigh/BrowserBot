@@ -10,24 +10,41 @@ import javax.swing.JFrame;
 import org.browserbot.BrowserBot;
 import org.browserbot.ui.resource.ResourceManager;
 
+/**
+ * The browser window.
+ * 
+ * @author Desmond Jackson
+ */
 public class BrowserWindow extends JFrame implements WindowListener {
 
+	/**
+	 * The serial uid.
+	 */
 	private static final long serialVersionUID = 882385961396552922L;
 	
-	private BrowserMenuBar menuBar = new BrowserMenuBar();
-	
+	/**
+	 * The browser tab pane.
+	 */
 	private BrowserTabPane tabPane = new BrowserTabPane();
 	
+	/**
+	 * Creates the browser window.
+	 */
 	public BrowserWindow() {
 		super("BrowserBot v" + BrowserBot.MAJOR_VERSION + "." + BrowserBot.MINOR_VERSION);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setIconImage(ResourceManager.getImage("logo.png").getImage());
 		setSize(new Dimension(1024, 700));
-		setJMenuBar(menuBar);
+		setJMenuBar(new BrowserMenuBar());
 		add(tabPane, BorderLayout.CENTER);
 		addWindowListener(this);
 	}
 	
+	/**
+	 * Gets the browser tab pane.
+	 * 
+	 * @return The browser tab pane
+	 */
 	public BrowserTabPane getTabPane() {
 		return tabPane;
 	}

@@ -6,13 +6,30 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * The script classLoader.
+ * 
+ * @author Desmond Jackson
+ */
 public class ScriptClassLoader extends ClassLoader {
 
+	/**
+	 * The name of the script.
+	 */
 	private String name;
 
+	/**
+	 * The bytes of the script.
+	 */
 	private byte[] bytes;
 
+	/**
+	 * Creates the script class loader.
+	 * 
+	 * @param classFile The script to load
+	 */
 	public ScriptClassLoader(File classFile) {
+		super();
 		try {
 			name = classFile.getName().split("\\.")[0];
 			InputStream in = new FileInputStream(classFile);
@@ -28,6 +45,11 @@ public class ScriptClassLoader extends ClassLoader {
 		}
 	}
 
+	/**
+	 * Gets the script instance from the name and bytes.
+	 * 
+	 * @return The script instance from the name and bytes
+	 */
 	public Script getScript() {
 		try {
 			return defineClass(name, bytes, 0, bytes.length).asSubclass(Script.class).newInstance();

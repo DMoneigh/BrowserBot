@@ -10,12 +10,26 @@ import org.browserbot.ui.menuitem.StopMenuItem;
 import org.browserbot.ui.menuitem.ZoomInMenuItem;
 import org.browserbot.ui.menuitem.ZoomOutMenuItem;
 
+/**
+ * The "View" menu.
+ * 
+ * @author Desmond Jackson
+ */
 public class ViewMenu extends BrowserMenu implements ChangeListener {
 
+	/**
+	 * The serial uid.
+	 */
 	private static final long serialVersionUID = -3109821477561973176L;
 	
+	/**
+	 * The "Stop" menu item.
+	 */
 	private StopMenuItem stopMenuItem;
 
+	/**
+	 * Creates the "View" menu item.
+	 */
 	public ViewMenu() {
 		super("View");
 		addChangeListener(this);
@@ -29,6 +43,7 @@ public class ViewMenu extends BrowserMenu implements ChangeListener {
 		add(new ActualSizeMenuItem());
 		add(new ZoomInMenuItem());
 		add(new ZoomOutMenuItem());
+			
 	}
 
 	@Override

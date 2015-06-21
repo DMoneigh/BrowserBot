@@ -6,10 +6,21 @@ import org.browserbot.ui.BrowserMenuItem;
 
 import com.teamdev.jxbrowser.chromium.EditorCommand;
 
+/**
+ * The "Cut" menu item.
+ * 
+ * @author Desmond Jackson
+ */
 public class CutMenuItem extends BrowserMenuItem {
 
+	/**
+	 * The serial uid.
+	 */
 	private static final long serialVersionUID = -9146743698426641802L;
 
+	/**
+	 * Creates the "Cut" menu item.
+	 */
 	public CutMenuItem() {
 		super("Cut");
 	}

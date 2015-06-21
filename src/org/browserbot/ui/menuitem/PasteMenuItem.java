@@ -6,10 +6,21 @@ import org.browserbot.ui.BrowserMenuItem;
 
 import com.teamdev.jxbrowser.chromium.EditorCommand;
 
+/**
+ * The "Paste" menu item.
+ * 
+ * @author Desmond Jackson
+ */
 public class PasteMenuItem extends BrowserMenuItem {
 
+	/**
+	 * The serial uid.
+	 */
 	private static final long serialVersionUID = -8594927578630894888L;
 
+	/**
+	 * Creates the "Paste" menu item.
+	 */
 	public PasteMenuItem() {
 		super("Paste");
 	}

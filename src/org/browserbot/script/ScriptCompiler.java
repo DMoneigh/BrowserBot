@@ -7,8 +7,16 @@ import javax.tools.ToolProvider;
 
 import org.browserbot.util.FileManager;
 
-public class ScriptCompiler {
+/**
+ * The script compiler.
+ * 
+ * @author Desmond Jackson
+ */
+public class ScriptCompiler extends Object {
 	
+	/**
+	 * Attempts to compile all scripts in the "Source" directory.
+	 */
 	public static void compileScripts() {
 		int count = 0;
 		for (File file : new File(FileManager.SOURCE_DIR).listFiles()) {

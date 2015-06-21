@@ -7,10 +7,21 @@ import javax.swing.Icon;
 import org.browserbot.ui.BrowserButton;
 import org.browserbot.ui.resource.ResourceManager;
 
+/**
+ * The forward button.
+ * 
+ * @author Desmond Jackson
+ */
 public class ForwardButton extends BrowserButton {
 
+	/**
+	 * The serial uid.
+	 */
 	private static final long serialVersionUID = 4255131397124759082L;
 
+	/**
+	 * Creates the forward button.
+	 */
 	public ForwardButton() {
 		super(null);
 	}

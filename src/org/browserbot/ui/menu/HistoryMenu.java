@@ -10,14 +10,31 @@ import org.browserbot.ui.menuitem.HomeMenuItem;
 
 import com.teamdev.jxbrowser.chromium.Browser;
 
+/**
+ * The "History" menu.
+ * 
+ * @author Desmond Jackson
+ */
 public class HistoryMenu extends BrowserMenu implements ChangeListener {
 
+	/**
+	 * The serial uid.
+	 */
 	private static final long serialVersionUID = 462523589227324681L;
 	
+	/**
+	 * The "Back" menu item.
+	 */
 	private BackMenuItem backMenuItem;
 	
+	/**
+	 * The "Forward" menu item.
+	 */
 	private ForwardMenuItem forwardMenuItem;
 	
+	/**
+	 * Creates the "History" menu.
+	 */
 	public HistoryMenu() {
 		super("History");
 		addChangeListener(this);

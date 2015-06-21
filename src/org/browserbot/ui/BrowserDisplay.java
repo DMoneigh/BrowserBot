@@ -22,10 +22,21 @@ import com.teamdev.jxbrowser.chromium.swing.DefaultDownloadHandler;
 import com.teamdev.jxbrowser.chromium.swing.DefaultPopupHandler;
 import com.teamdev.jxbrowser.chromium.swing.DefaultPrintHandler;
 
+/**
+ * The browser display.
+ * 
+ * @author Desmond Jackson
+ */
 public class BrowserDisplay extends BrowserView implements LoadListener, StatusListener, TitleListener {
 
+	/**
+	 * The serial uid.
+	 */
 	private static final long serialVersionUID = 8542959336384890530L;
 
+	/**
+	 * Creates the browser display.
+	 */
 	public BrowserDisplay() {
 		super(new Browser(new BrowserContext(FileManager.DEFAULT_DIR)));
 		Browser browser = getBrowser();
@@ -40,6 +51,11 @@ public class BrowserDisplay extends BrowserView implements LoadListener, StatusL
 		browser.addLoadListener(this);
 	}
 	
+	/**
+	 * Gets the browser tab.
+	 * 
+	 * @return The browser tab
+	 */
 	public BrowserTab getTab() {
 		return (BrowserTab) getParent();
 	}
