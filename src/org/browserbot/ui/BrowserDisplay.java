@@ -1,5 +1,8 @@
 package org.browserbot.ui;
 
+import org.browserbot.ui.handler.BrowserContextMenuHandler;
+import org.browserbot.ui.handler.BrowserDownloadHandler;
+import org.browserbot.ui.handler.BrowserPopupHandler;
 import org.browserbot.util.FileManager;
 
 import com.teamdev.jxbrowser.chromium.Browser;
@@ -18,8 +21,6 @@ import com.teamdev.jxbrowser.chromium.events.TitleEvent;
 import com.teamdev.jxbrowser.chromium.events.TitleListener;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 import com.teamdev.jxbrowser.chromium.swing.DefaultDialogHandler;
-import com.teamdev.jxbrowser.chromium.swing.DefaultDownloadHandler;
-import com.teamdev.jxbrowser.chromium.swing.DefaultPopupHandler;
 import com.teamdev.jxbrowser.chromium.swing.DefaultPrintHandler;
 
 /**
@@ -40,10 +41,11 @@ public class BrowserDisplay extends BrowserView implements LoadListener, StatusL
 	public BrowserDisplay() {
 		super(new Browser(new BrowserContext(FileManager.DEFAULT_DIR)));
 		Browser browser = getBrowser();
+		browser.setContextMenuHandler(new BrowserContextMenuHandler(this));
 		browser.setDialogHandler(new DefaultDialogHandler(this));
-		browser.setDownloadHandler(new DefaultDownloadHandler(this));
+		browser.setDownloadHandler(new BrowserDownloadHandler());
 		browser.setLoadHandler(new DefaultLoadHandler());
-		browser.setPopupHandler(new DefaultPopupHandler());
+		browser.setPopupHandler(new BrowserPopupHandler());
 		browser.setPrintHandler(new DefaultPrintHandler(this));
 		browser.loadURL("http://forums.browserbot.org");
 		browser.addTitleListener(this);

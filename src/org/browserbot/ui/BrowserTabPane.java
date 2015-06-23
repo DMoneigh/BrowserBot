@@ -48,6 +48,16 @@ public class BrowserTabPane extends JTabbedPane implements MouseListener {
 		setTabComponentAt(index, tab.getTabComponent());
 		setSelectedIndex(index);
 	}
+	
+	/**
+	 * Appends a tab and navigates to the specified url.
+	 * 
+	 * @param url The url to navigate to
+	 */
+	public void addTab(String url) {
+		addTab();
+		getSelectedTab().getDisplay().getBrowser().loadURL(url);
+	}
 
 	/**
 	 * Removes a tab from the tab pane.
@@ -62,7 +72,7 @@ public class BrowserTabPane extends JTabbedPane implements MouseListener {
 		if (tabs.isEmpty())
 			getWindow().dispose();
 		else
-			setSelectedIndex(index - 1);
+			setSelectedIndex(tabs.size() - 1);
 	}
 
 	/**

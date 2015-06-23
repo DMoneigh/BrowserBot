@@ -1,5 +1,6 @@
 package org.browserbot;
 
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -9,7 +10,7 @@ import org.browserbot.util.FileManager;
 /**
  * Java Browser Automation Software.
  * 
- * @version 0.4
+ * @version 0.5
  *
  * @see <a href="http://www.browserbot.org">BrowserBot</a>
  * 
@@ -25,7 +26,7 @@ public class BrowserBot extends Object {
 	/**
 	 * The application minor version.
 	 */
-	public static final int MINOR_VERSION = 4;
+	public static final int MINOR_VERSION = 5;
 	
 	/**
 	 * The main method.
@@ -40,7 +41,14 @@ public class BrowserBot extends Object {
 				| IllegalAccessException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		new BrowserWindow().setVisible(true);
+		SwingUtilities.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				new BrowserWindow().setVisible(true);
+			}
+			
+		});
 	}
 
 }

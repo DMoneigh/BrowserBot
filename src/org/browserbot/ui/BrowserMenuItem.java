@@ -36,4 +36,13 @@ public abstract class BrowserMenuItem extends JMenuItem implements ActionListene
 		return (BrowserMenu) ((JPopupMenu) getParent()).getInvoker();
 	}
 	
+	/**
+	 * Gets the browser display.
+	 * 
+	 * @return The browser display
+	 */
+	public BrowserDisplay getDisplay() {
+		return (BrowserDisplay) ((JPopupMenu) getParent()).getInvoker();
+	}
+	
 }

@@ -41,6 +41,16 @@ public class BrowserWindow extends JFrame implements WindowListener {
 	}
 	
 	/**
+	 * Creates the browser window and navigates to the specified url.
+	 * 
+	 * @param url The url to navigate to
+	 */
+	public BrowserWindow(String url) {
+		this();
+		tabPane.getSelectedTab().getDisplay().getBrowser().loadURL(url);
+	}
+	
+	/**
 	 * Gets the browser tab pane.
 	 * 
 	 * @return The browser tab pane

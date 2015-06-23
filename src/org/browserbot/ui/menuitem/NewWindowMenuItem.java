@@ -2,6 +2,8 @@ package org.browserbot.ui.menuitem;
 
 import java.awt.event.ActionEvent;
 
+import javax.swing.SwingUtilities;
+
 import org.browserbot.ui.BrowserMenuItem;
 import org.browserbot.ui.BrowserWindow;
 
@@ -26,7 +28,14 @@ public class NewWindowMenuItem extends BrowserMenuItem {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new BrowserWindow().setVisible(true);
+		SwingUtilities.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				new BrowserWindow().setVisible(true);
+			}
+			
+		});
 	}
 
 }
