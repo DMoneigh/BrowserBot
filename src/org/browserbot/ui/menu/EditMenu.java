@@ -17,6 +17,9 @@ public class EditMenu extends BrowserMenu {
 	 */
 	private static final long serialVersionUID = -3967355326155968741L;
 
+	/**
+	 * Creates the "Edit" menu. 
+	 */
 	public EditMenu() {
 		super("Edit");
 	}
