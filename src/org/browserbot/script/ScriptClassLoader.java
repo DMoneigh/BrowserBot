@@ -53,8 +53,7 @@ public class ScriptClassLoader extends ClassLoader {
 	public Script getScript() {
 		try {
 			return defineClass(name, bytes, 0, bytes.length).asSubclass(Script.class).newInstance();
-		} catch (InstantiationException | IllegalAccessException
-				| ClassFormatError e) {
+		} catch (InstantiationException | IllegalAccessException | ClassFormatError e) {
 			e.printStackTrace();
 		}
 		return null;
