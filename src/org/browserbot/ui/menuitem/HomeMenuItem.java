@@ -26,7 +26,7 @@ public class HomeMenuItem extends BrowserMenuItem {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		getMenu().getMenuBar().getWindow().getTabPane().getSelectedTab().getDisplay().getBrowser()
-		.loadURL("http://forums.browserbot.org");
+		.loadURL("http://www.browserbot.org");
 	}
 
 }
