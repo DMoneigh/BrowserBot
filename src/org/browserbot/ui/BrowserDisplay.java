@@ -47,7 +47,7 @@ public class BrowserDisplay extends BrowserView implements LoadListener, StatusL
 		browser.setLoadHandler(new DefaultLoadHandler());
 		browser.setPopupHandler(new BrowserPopupHandler());
 		browser.setPrintHandler(new DefaultPrintHandler(this));
-		browser.loadURL("http://forums.browserbot.org");
+		browser.loadURL("http://www.browserbot.org");
 		browser.addTitleListener(this);
 		browser.addStatusListener(this);
 		browser.addLoadListener(this);
