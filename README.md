@@ -1,7 +1,7 @@
 BrowserBot
 ========
 
-Java Browser Automation Software
+Java Web Browser Automation Software
 
 Website
 =======
